@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
+const port = process.env.PORT || 3000;
 let bodyParser = require('body-parser');
 let helmet = require('helmet');
 
@@ -24,8 +25,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 const routes = require('./routes/routes.js');
 
-app.use('/', routes)
+app.use('/api', routes)
 
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
+app.listen(port, () => {
+    console.log(`Server Started at ${port}`)
 })
