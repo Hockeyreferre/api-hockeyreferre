@@ -3,16 +3,16 @@ const Model = require('../models/model');
 const router = express.Router();
 let path = require("path");
 
-router.get('create', async (req, res) => {
-    res.sendFile(path.join(__dirname,'../views/form.html'));
+router.get('/create', async (req, res) => {
+    res.sendFile(path.join(__dirname,'../view/create.html'));
 })
 
-router.get('view', async (req, res) => {
-    res.sendFile(path.join(__dirname,'../views/view.html'));
+router.get('/view', async (req, res) => {
+    res.sendFile(path.join(__dirname,'../view/view.html'));
 })
 
 //Post Method
-router.post('add', async (req, res) => {
+router.post('/add', async (req, res) => {
     const data = new Model({
         home: req.body.home,
         logoHome: req.body.logoHome,
@@ -47,7 +47,7 @@ router.post('add', async (req, res) => {
 })
 
 //Get all Method
-router.get('getAll', async (req, res) => {
+router.get('/getAll', async (req, res) => {
     try {
         const data = await Model.find();
         res.json(data)
@@ -58,9 +58,9 @@ router.get('getAll', async (req, res) => {
 })
 
 //Get by ID Method
-router.get('getOne', async (req, res) => {
+router.get('/getOne/:id', async (req, res) => {
     try {
-        const data = await Model.findById(req.body.id);
+        const data = await Model.findById(req.params.id);
         res.json(data)
     }
     catch (error) {
@@ -69,7 +69,7 @@ router.get('getOne', async (req, res) => {
 })
 
 //Update by ID Method
-router.patch('update/:id', async (req, res) => {
+router.patch('/update/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -87,7 +87,7 @@ router.patch('update/:id', async (req, res) => {
 })
 
 //Delete by ID Method
-router.delete('delete/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Model.findByIdAndDelete(id)
