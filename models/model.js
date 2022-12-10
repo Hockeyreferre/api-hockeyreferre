@@ -31,11 +31,11 @@ const dataSchema = new mongoose.Schema({
     },
     live: {
         required: false,
-        type: Boolean
+        type: String
     },
     beendet: {
         required: false,
-        type: Boolean
+        type: String
     },
     stream: {
         required: true,
@@ -75,7 +75,7 @@ const dataSchema = new mongoose.Schema({
     },
     overtime: {
         required: false,
-        type: Boolean
+        type: String
     },
     scoreHomeOT: {
         required: false,
