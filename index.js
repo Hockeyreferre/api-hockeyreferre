@@ -20,6 +20,7 @@ database.once('connected', () => {
 const app = express();
 app.use(cors())
 app.use(express.json());
+app.set("view engine", "ejs");
 app.use(helmet());
 app.use(bodyParser.urlencoded({extended: false}));
 

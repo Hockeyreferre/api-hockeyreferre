@@ -2,17 +2,24 @@ const express = require('express');
 const Model = require('../models/model');
 const router = express.Router();
 let path = require("path");
-
-router.get('/create', async (req, res) => {
-    res.sendFile(path.join(__dirname,'../view/create.html'));
-})
+let games = []
 
 router.get('/view', async (req, res) => {
-    res.sendFile(path.join(__dirname,'../view/view.html'));
+    res.render('view', {data: await Model.find()});
 })
 
 //Post Method
 router.post('/add', async (req, res) => {
+    const inputId = games.length + 1;
+    const inputdate = req.body.date;
+    const inputtime = req.body.time;
+    const inputhome = req.body.home;
+    const inputlogohome = req.body.logoHome;
+    const inputscorehome = req.body.scoreHome;
+    const inputscoreaway = req.body.scoreAway;
+    const inputlogoaway = req.body.logoAway;
+    const inputaway = req.body.away;
+    const inputstream = req.body.stream;
     const data = new Model({
         home: req.body.home,
         logoHome: req.body.logoHome,
@@ -38,6 +45,18 @@ router.post('/add', async (req, res) => {
     })
 
     try {
+        games.push({
+            id: inputId,
+            date: inputdate,
+            time: inputtime,
+            home: inputhome,
+            logoHome: inputlogohome,
+            scoreHome: inputscorehome,
+            scoreAway: inputscoreaway,
+            logoAway: inputlogoaway,
+            away: inputaway,
+            stream: inputstream
+        });
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
     }
@@ -58,9 +77,9 @@ router.get('/getAll', async (req, res) => {
 })
 
 //Get by ID Method
-router.get('/getOne/:id', async (req, res) => {
+router.get('/getOne', async (req, res) => {
     try {
-        const data = await Model.findById(req.params.id);
+        const data = await Model.findById(req.body.id);
         res.json(data)
     }
     catch (error) {
@@ -87,11 +106,22 @@ router.patch('/update/:id', async (req, res) => {
 })
 
 //Delete by ID Method
-router.delete('/delete/:id', async (req, res) => {
+router.post('/delete/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Model.findByIdAndDelete(id)
         res.send(`Document with ${data.id} has been deleted..`)
+        var requestID = req.body.id;
+        var j = 0;
+        games.forEach((game) => {
+            j = j + 1;
+            if (game.id === requestID) {
+                games.splice(j - 1, 1);
+            }
+        });
+        res.render("view", {
+            data: games,
+        })
     }
     catch (error) {
         res.status(400).json({ message: error.message })
