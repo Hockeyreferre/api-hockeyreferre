@@ -41,6 +41,10 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    liga: {
+        required: true,
+        type: String
+    },
     scoreHome: {
         required: true,
         type: Number

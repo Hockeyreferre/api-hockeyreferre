@@ -29,6 +29,7 @@ router.post('/add', async (req, res) => {
         time: req.body.time,
         stadion: req.body.stadion,
         live: req.body.live,
+        liga: req.body.liga,
         beendet: req.body.beendet,
         stream: req.body.stream,
         scoreHome: req.body.scoreHome,
@@ -80,6 +81,26 @@ router.get('/getAll', async (req, res) => {
 router.get('/getOne', async (req, res) => {
     try {
         const data = await Model.findById(req.body.id);
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.get('/oberligaNord', async (req, res) => {
+    try {
+        const data = await Model.find({liga: "oberligaNord"});
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.get('/oberligaSüd', async (req, res) => {
+    try {
+        const data = await Model.find({liga: "oberligaSüd"});
         res.json(data)
     }
     catch (error) {
