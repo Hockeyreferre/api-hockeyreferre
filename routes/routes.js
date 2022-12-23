@@ -1,11 +1,18 @@
 const express = require('express');
 const Model = require('../models/model');
+const Aufstellung = require('../models/model');
+const Team = require('../models/model');
 const router = express.Router();
 let path = require("path");
 let games = []
+const rostock = require('../json/rostock3.json')
 
 router.get('/view', async (req, res) => {
-    res.render('view', {data: await Model.find()});
+    res.render('view', { data: await Model.find({live: true}) });
+})
+
+router.get('/view/:id', async (req, res) => {
+    res.render('detail', { aufstellungHome: rostock });
 })
 
 //Post Method
@@ -66,6 +73,41 @@ router.post('/add', async (req, res) => {
     }
 })
 
+router.post('/aufstellungHeim/:home', async (req, res) => {
+    const aufstellung = new Aufstellung({
+        teamName: req.params.home,
+        RF1: req.body.RF1,
+        C1: req.body.C1,
+        LF1: req.body.LF1,
+        RH1: req.body.RH1,
+        LH1: req.body.LH1,
+        RF2: req.body.RF2,
+        C2: req.body.C2,
+        LF2: req.body.LF2,
+        RH2: req.body.RH2,
+        LH2: req.body.LH2,
+        RF3: req.body.RF3,
+        C3: req.body.C3,
+        LF3: req.body.LF3,
+        RH3: req.body.RH3,
+        LH3: req.body.LH3,
+        RF4: req.body.RF4,
+        C4: req.body.C4,
+        LF4: req.body.LF4,
+        RH4: req.body.RH4,
+        LH4: req.body.LH4,
+        TW1: req.body.TW1,
+        TW2: req.body.TW2,
+    })
+    try {
+        const dataToSave = await aufstellung.save();
+        res.status(200).json(dataToSave)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
 //Get all Method
 router.get('/getAll', async (req, res) => {
     try {
@@ -90,7 +132,7 @@ router.get('/getOne', async (req, res) => {
 
 router.get('/oberligaNord', async (req, res) => {
     try {
-        const data = await Model.find({liga: "oberligaNord"});
+        const data = await Model.find({ liga: "oberligaNord" });
         res.json(data)
     }
     catch (error) {
@@ -100,7 +142,17 @@ router.get('/oberligaNord', async (req, res) => {
 
 router.get('/oberligaSüd', async (req, res) => {
     try {
-        const data = await Model.find({liga: "oberligaSüd"});
+        const data = await Model.find({ liga: "oberligaSüd" });
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.get('/mannschaft/:name', async (req, res) => {
+    try {
+        const data = await Aufstellung.find({ teamName: req.params.name });
         res.json(data)
     }
     catch (error) {

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Game Management System</title>
+	<style>
+		.row {
+			display: flex;
+			justify-content: space-around;
+			margin: 10px;
+			width: 45%;
+		}
+
+		.display {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+	</style>
+</head>
+
+<body>
+<div class="display">
+	<form class="home" action="/api/aufstellungHeim/<%= aufstellungHome.teamName %>" method="post">
+		<h2>Heim</h2>
+		<div>
+			<h4>Reihe 1</h4>
+			<div class="row">
+				<select name="LF1" id="RF1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C1" id="C1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF1" id="LF1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH1" id="LH1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RH1" id="RH1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Reihe 2</h4>
+			<div class="row">
+				<select name="LF2" id="LF2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C2" id="C2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF2" id="RF2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH2" id="LH2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RH2" id="RH2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Reihe 3</h4>
+			<div class="row">
+				<select name="LF3" id="LF3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C3" id="C3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF3" id="RF3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH3" id="LH3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RH3" id="RH3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Reihe 4</h4>
+			<div class="row">
+				<select name="LF4" id="LF4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C4" id="C4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF4" id="RF4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH4" id="LH4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RH4" id="RH4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Torhüter</h4>
+			<div class="row">
+				<select name="TW1" id="TW1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="TW2" id="TW2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<button type="submit">Bestätigen</button>
+	</form>
+	<form class="away" action="/api/aufstellungGast">
+		<h2>Gast</h2>
+		<div>
+			<h4>Reihe 1</h4>
+			<div class="row">
+				<select name="LF1" id="LF1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C1" id="C1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF1" id="RF1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH1" id="LH1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF1" id="RF1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Reihe 2</h4>
+			<div class="row">
+				<select name="LF2" id="LF2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C2" id="C2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF2" id="RF2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH2" id="LH2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF2" id="RF2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Reihe 3</h4>
+			<div class="row">
+				<select name="LF3" id="LF3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C3" id="C3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF3" id="RF3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH3" id="LH3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF3" id="RF3">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Reihe 4</h4>
+			<div class="row">
+				<select name="LF4" id="LF4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="C4" id="C4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF4" id="RF4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+			<div class="row">
+				<select name="LH4" id="LH4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="RF4" id="RF4">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<div>
+			<h4>Torhüter</h4>
+			<div class="row">
+				<select name="TW1" id="TW1">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+				<select name="TW2" id="TW2">
+					<option> -- Bitte Auswählen -- </option>
+					<% aufstellungHome.forEach(element => { %>
+						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+		<button type="submit">Bestätigen</button>
+	</form>
+</div>
+	
+</body>
+
+</html>
