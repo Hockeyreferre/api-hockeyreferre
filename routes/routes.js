@@ -140,7 +140,7 @@ router.get('/oberligaNord', async (req, res) => {
     }
 })
 
-router.get('/oberligaSüd', async (req, res) => {
+router.get('/oberligaSued', async (req, res) => {
     try {
         const data = await Model.find({ liga: "oberligaSüd" });
         res.json(data)
