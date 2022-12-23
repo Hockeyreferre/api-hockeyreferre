@@ -1,7 +1,7 @@
 const express = require('express');
 const Model = require('../models/model');
-const Aufstellung = require('../models/model');
-const Team = require('../models/model');
+const Aufstellung = require('../models/aufstellung');
+const Team = require('../models/team');
 const router = express.Router();
 let path = require("path");
 let games = []
@@ -140,7 +140,7 @@ router.get('/oberligaNord', async (req, res) => {
     }
 })
 
-router.get('/oberligaSued', async (req, res) => {
+router.get('/oberligaSüd', async (req, res) => {
     try {
         const data = await Model.find({ liga: "oberligaSüd" });
         res.json(data)
