@@ -1,98 +1,16 @@
 const mongoose = require('mongoose');
 
 const team = new mongoose.Schema({
+    jersey: {
+        type: Number
+    },
+    fullname: {
+        type: String
+    },
+    image: {
+        type: String
+    },
     teamName: {
-        required: true,
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
-        type: String
-    },
-    fullname: {
         type: String
     }
 })

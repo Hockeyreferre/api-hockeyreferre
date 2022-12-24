@@ -8,14 +8,13 @@ let games = []
 const rostock = require('../json/rostock3.json')
 
 router.get('/view', async (req, res) => {
-    res.render('view', { data: await Model.find({live: true}) });
+    res.render('view', { data: await Model.find() });
 })
 
-router.get('/view/:id', async (req, res) => {
-    res.render('detail', { aufstellungHome: rostock });
+router.get('/view/:id/:home/:away', async (req, res) => {
+    res.render('detail', { aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}) });
 })
 
-//Post Method
 router.post('/add', async (req, res) => {
     const inputId = games.length + 1;
     const inputdate = req.body.date;
@@ -73,9 +72,9 @@ router.post('/add', async (req, res) => {
     }
 })
 
-router.post('/aufstellungHeim/:home', async (req, res) => {
+router.post('/aufstellungHeim/:name', async (req, res) => {
     const aufstellung = new Aufstellung({
-        teamName: req.params.home,
+        teamName: req.params.name,
         RF1: req.body.RF1,
         C1: req.body.C1,
         LF1: req.body.LF1,
