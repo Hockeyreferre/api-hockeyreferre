@@ -160,9 +160,9 @@ router.get('/mannschaft/:name', async (req, res) => {
 })
 
 //Update by ID Method
-router.patch('/update/:id', async (req, res) => {
+router.post('/update', async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.body.id;
         const updatedData = req.body;
         const options = { new: true };
 

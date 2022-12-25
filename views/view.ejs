@@ -21,6 +21,12 @@
 	tr:nth-child(even) {
 		background-color: #dddddd;
 	}
+	.flex {
+		display: flex;
+	}
+	.item {
+		width: 20%;
+	}
 </style>
 
 <body>
@@ -62,6 +68,8 @@
 			</tr>
 		<% }) %>
 </table>
+<div class="flex">
+	<div class="item">
 
 	<h2>Add Game</h2>
 
@@ -123,20 +131,44 @@
    <input type="number" id="scoreAwayOT" name="scoreAwayOT"><br>
    <input type="submit" value="Submit"><br><br>
 	</form>
+	</div>
+	<div>
 
-	<h2>Update Employee</h2>
+	<h2>Update Game</h2>
 
 	<form action="/api/update" method="post">
-		<input type="text" placeholder="Employee Id"
-			name="employeeId">
-		<input type="text" placeholder="Employee Name"
-			name="employeeName">
-		<input type="text" placeholder="Employee Post"
-			name="employeePost">
-		<input type="text" placeholder="Employee Salary"
-			name="employeeSalary">
-		<button type="submit">Update</button>
+		<label for="id">ID:</label><br>
+		<input type="text" name="id" id="id"><br>
+		<input type="checkbox" id="live" name="live" value="true">
+		<label for="live"> Live</label><br>
+		<input type="checkbox" id="endet" name="endet" value="true">
+		<label for="endet"> Beendet</label><br>
+		<label for="scoreHome" required="true">Score Heim:</label><br>
+		<input type="number" id="scoreHome" name="scoreHome" required="true"><br>
+		<label for="scoreAway" required="true">Score Gast:</label><br>
+		<input type="number" id="scoreAway" name="scoreAway" required="true"><br>
+		<label for="scoreHome1" required="true">Score Heim 1:</label><br>
+		<input type="number" id="scoreHome1" name="scoreHome1" required="true"><br>
+		<label for="scoreAway1" required="true">Score Gast 1:</label><br>
+		<input type="number" id="scoreAway1" name="scoreAway1" required="true"><br>
+		<label for="scoreHome2" required="true">Score Heim 2:</label><br>
+		<input type="number" id="scoreHome2" name="scoreHome2" required="true"><br>
+		<label for="scoreAway2" required="true">Score Gast 2:</label><br>
+		<input type="number" id="scoreAway2" name="scoreAway2" required="true"><br>
+		<label for="scoreHome3" required="true">Score Heim 3:</label><br>
+		<input type="number" id="scoreHome3" name="scoreHome3" required="true"><br>
+		<label for="scoreAway3" required="true">Score Gast 3:</label><br>
+		<input type="number" id="scoreAway3" name="scoreAway3" required="true"><br>
+		<input type="checkbox" id="overtime" name="overtime" value="overtime">
+		<label for="overtime"> OT / Penalty</label><br>
+		<label for="scoreHomeOT">Score Heim OT:</label><br>
+		<input type="number" id="scoreHomeOT" name="scoreHomeOT"><br>
+		<label for="scoreAwayOT">Score Gast OT:</label><br>
+		<input type="number" id="scoreAwayOT" name="scoreAwayOT"><br>
+		<input type="submit" value="Update"><br><br>
 	</form>
+	</div>
+</div>
 </body>
 
 </html>
