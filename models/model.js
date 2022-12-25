@@ -37,6 +37,10 @@ const dataSchema = new mongoose.Schema({
         required: false,
         type: Boolean
     },
+    abgesagt: {
+        required: false,
+        type: Boolean
+    },
     stream: {
         required: true,
         type: String

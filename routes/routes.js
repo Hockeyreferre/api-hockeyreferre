@@ -12,7 +12,7 @@ router.get('/view', async (req, res) => {
 })
 
 router.get('/view/:id/:home/:away', async (req, res) => {
-    res.render('detail', { aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}) });
+    res.render('detail', { aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away });
 })
 
 router.post('/add', async (req, res) => {
@@ -37,6 +37,7 @@ router.post('/add', async (req, res) => {
         live: req.body.live,
         liga: req.body.liga,
         beendet: req.body.beendet,
+        abgesagt: req.body.abgesagt,
         stream: req.body.stream,
         scoreHome: req.body.scoreHome,
         scoreAway: req.body.scoreAway,
@@ -101,6 +102,13 @@ router.post('/aufstellungHeim/:name', async (req, res) => {
     try {
         const dataToSave = await aufstellung.save();
         res.status(200).json(dataToSave)
+
+        // const updatedData = req.body;
+        // const options = { new: true };
+
+        // const result = await Model.findOneAndUpdate({teamName: req.params.name}, updatedData, options)
+
+        // res.send(result)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
