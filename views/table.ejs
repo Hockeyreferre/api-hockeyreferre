@@ -19,7 +19,7 @@
     <h2>Tabelle</h2>
     <div class="display">
         <% data.forEach(element => { %>
-            <form action="/api/updateTeam/<%= element.name %>">
+            <form action="/api/updateTeam/<%= element.name %>" method="post">
                 <h4><%= element.name %></h4>
                 <label for="place">Platz:</label>
                 <input type="number" name="place" id="place" value="<%= element.place %>"><br>
