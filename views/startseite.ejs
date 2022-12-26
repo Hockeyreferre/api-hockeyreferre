@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startseite | API Hockeyreferre</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .flex {
+            display: flex;
+        }
+        .item {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h2>API Zentrum | Hockeyreferre</h2>
+    <table>
+		<tr>
+		<th>ID</th>
+		<th>Datum</th>
+		<th>Uhrzeit</th>
+		<th>Heim</th>
+		<th>LogoHeim</th>
+		<th>ScoreHeim</th>
+		<th>ScoreAway</th>
+		<th>LogoAway</th>
+		<th>Away</th>
+		<th>Stream</th>
+		</tr>
+		<% data.forEach(element => { %>
+			<tr href="/api/view/<%= element.id %>">
+				<td><%= element.id %></td>
+				<td><%= element.date %></td>
+				<td><%= element.time %></td>
+				<td><%= element.home %></td>
+				<td><%= element.logoHome %></td>
+				<td><%= element.scoreHome %></td>
+				<td><%= element.scoreAway %></td>
+				<td><%= element.logoAway %></td>
+				<td><%= element.away %></td>
+				<td><%= element.stream %></td>
+				<td><button><a href="/api/view/<%= element.id %>/<%= element.home %>/<%= element.away %>" target="_blank">zum Spiel</a></button></td>
+				<td>
+						<form action="/api/delete/<%= element.id %>" method="POST" target="_blank">
+						<input type="text" style="display: none;"
+							name="id"
+							value="<%= element.id %>">
+						<button type="submit">Delete</button>
+						</form>
+				</td>
+			</tr>
+		<% }) %>
+</table>
+</body>
+</html>

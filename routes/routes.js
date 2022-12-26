@@ -7,12 +7,16 @@ let path = require("path");
 let games = []
 const rostock = require('../json/rostock3.json')
 
-router.get('/view', async (req, res) => {
-    res.render('view', { data: await Model.find() });
+router.get('', async (req, res) => {
+    res.render('startseite', { data: await Model.find() });
+})
+
+router.get('/create', async (req, res) => {
+    res.render('create', { data: await Model.find() });
 })
 
 router.get('/view/:id/:home/:away', async (req, res) => {
-    res.render('detail', { aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away });
+    res.render('detail', { aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away, id: req.params.id });
 })
 
 router.post('/add', async (req, res) => {
@@ -168,9 +172,9 @@ router.get('/mannschaft/:name', async (req, res) => {
 })
 
 //Update by ID Method
-router.post('/update', async (req, res) => {
+router.post('/update/:id', async (req, res) => {
     try {
-        const id = req.body.id;
+        const id = req.params.id;
         const updatedData = req.body;
         const options = { new: true };
 
