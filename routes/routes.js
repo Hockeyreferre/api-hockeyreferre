@@ -196,11 +196,10 @@ router.post('/update/:id', async (req, res) => {
 
 router.post('/updateTeam/:name', async (req, res) => {
     try {
-        const id = req.params.name;
         const updatedData = req.body;
         const options = { new: true };
 
-        const result = await Model.findOneAndUpdate({name: req.params.name}, updatedData, options)
+        const result = await Table.findOneAndUpdate({name: req.params.name}, updatedData, options)
 
         res.send(result)
     }
