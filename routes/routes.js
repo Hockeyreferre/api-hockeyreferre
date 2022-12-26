@@ -199,7 +199,7 @@ router.post('/updateTeam/:name', async (req, res) => {
         const updatedData = req.body;
         const options = { new: true };
 
-        const result = await Table.findOneAndUpdate({name: req.params.name}, updatedData, options)
+        const result = await Tabelle.findOneAndUpdate({name: req.params.name}, updatedData, options)
 
         res.send(result)
     }
