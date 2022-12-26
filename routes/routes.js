@@ -2,21 +2,26 @@ const express = require('express');
 const Model = require('../models/model');
 const Aufstellung = require('../models/aufstellung');
 const Team = require('../models/team');
+const Tabelle = require('../models/tabelle');
 const router = express.Router();
-let path = require("path");
 let games = []
-const rostock = require('../json/rostock3.json')
+const sort = { live: -1, date: 1, time: 1 }
+const table = { place: 1 }
 
 router.get('', async (req, res) => {
-    res.render('startseite', { data: await Model.find() });
+    res.render('startseite', { data: await Model.find().sort(sort) });
 })
 
 router.get('/create', async (req, res) => {
     res.render('create', { data: await Model.find() });
 })
 
+router.get('/editTable', async (req, res) => {
+    res.render('table', { data: await Tabelle.find().sort(table) });
+})
+
 router.get('/view/:id/:home/:away', async (req, res) => {
-    res.render('detail', { aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away, id: req.params.id });
+    res.render('detail', { data: await Model.findById(req.params.id), aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away, id: req.params.id });
 })
 
 router.post('/add', async (req, res) => {
@@ -181,6 +186,21 @@ router.post('/update/:id', async (req, res) => {
         const result = await Model.findByIdAndUpdate(
             id, updatedData, options
         )
+
+        res.send(result)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.post('/updateTeam/:name', async (req, res) => {
+    try {
+        const id = req.params.name;
+        const updatedData = req.body;
+        const options = { new: true };
+
+        const result = await Model.findOneAndUpdate({name: req.params.name}, updatedData, options)
 
         res.send(result)
     }
