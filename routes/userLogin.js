@@ -3,7 +3,6 @@ const User = require('../models/user');
 const router = express.Router();
 var async = require('async');
 
-const login = false
 
 router.get('', async (req, res) => {
     res.render('login', {});
@@ -41,4 +40,3 @@ router.post('/login', async (req, res) => {
 })
 
 module.exports = router;
-module.exports = login;
