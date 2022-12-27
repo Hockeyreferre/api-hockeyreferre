@@ -25,7 +25,9 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({extended: false}));
 
 const routes = require('./routes/routes.js');
+const userLogin = require('./routes/userLogin.js')
 
+app.use('/', userLogin)
 app.use('/api', routes)
 
 app.listen(port, () => {

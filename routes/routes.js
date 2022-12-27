@@ -20,6 +20,10 @@ router.get('/editTable', async (req, res) => {
     res.render('table', { data: await Tabelle.find().sort(table) });
 })
 
+router.get('/login', async (req, res) => {
+    res.render('login', { data: await Tabelle.find().sort(table) });
+})
+
 router.get('/view/:id/:home/:away', async (req, res) => {
     res.render('detail', { data: await Model.findById(req.params.id), aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away, id: req.params.id });
 })
@@ -199,7 +203,7 @@ router.post('/updateTeam/:name', async (req, res) => {
         const updatedData = req.body;
         const options = { new: true };
 
-        const result = await Table.findOneAndUpdate({name: req.params.name}, updatedData, options)
+        const result = await Tabelle.findOneAndUpdate({name: req.params.name}, updatedData, options)
 
         res.send(result)
     }

@@ -14,20 +14,26 @@
 		.display {
 			display: flex;
 			flex-direction: row;
-			margin-left: 150px;
 		}
 
 		select {
 			min-width: 150px;
 		}
+
+		a {
+			color: black;
+			text-decoration: none;
+		}
 	</style>
 </head>
 
 <body>
-	<div>
+	<button><a href="/api">Startseite</a></button>
+	<div class="display">
+	<div style="margin-right: 40px;">
 		<h2>Ergebnisse</h2>
 		<form action="/api/update/<%= id %>" method="post">
-			<div class="drittel" style="text-align: center; width: 27.5%;">
+			<div class="drittel" style="text-align: center;">
 				<span style="margin-right: 20px;"><%= nameHome %></span>
 				<span style="margin-left: 20px;"><%= nameAway %></span>
 			</div>
@@ -74,7 +80,30 @@
 			<input type="submit" value="Update">
 		</form>
 	</div>
-<div class="display">
+	<div>
+		<h2>Sonstiges</h2>
+		<form action="/api/update/<%= id %>" method="post">
+			<label for="home">Heim:</label> 
+			<input type="text" id="home" name="home" value="<%= data.home %>"> <br>
+			<label for="away">Gast:</label> 
+			<input type="text" id="away" name="away" value="<%= data.away %>"> <br>
+			<label for="logoHome">Logo Heim:</label> 
+			<input type="text" id="logoHome" name="logoHome" value="<%= data.logoHome %>"> <br>
+			<label for="logoAway">Logo Gast:</label> 
+			<input type="text" id="logoAway" name="logoAway" value="<%= data.logoAway %>"> <br>
+			<label for="referre1">Schiedsrichter 1:</label> 
+			<input type="text" id="referre1" name="referre1" value="<%= data.referre1 %>"> <br>
+			<label for="referre2">Schiedsrichter 2:</label> 
+			<input type="text" id="referre2" name="referre2" value="<%= data.referre2 %>"> <br>
+			<label for="linesperson1">Linesperson 1:</label>
+			<input type="text" id="linesperson1" name="linesperson1" value="<%= data.linesperson1 %>"> <br>
+			<label for="linesperson2">Linesperson 2:</label>
+			<input type="text" id="linesperson2" name="linesperson2" value="<%= data.linesperson2 %>"> <br>
+			<input type="submit" value="Update">
+		</form>
+	</div>
+	</div>
+<div class="display" style="margin-left: 150px;">
 	<form class="home" action="/api/aufstellungHeim/<%= nameHome %>" method="post">
 		<h2><%= nameHome %></h2>
 		<div>
@@ -244,7 +273,7 @@
 		</div>
 		<button type="submit">Bestätigen</button>
 	</form>
-	<form class="away" action="/api/aufstellungGast/<%= nameAway %>">
+	<form class="away" action="/api/aufstellungGast/<%= nameAway %>" method="post">
 		<h2><%= nameAway %></h2>
 		<div>
 			<h4>Reihe 1</h4>
