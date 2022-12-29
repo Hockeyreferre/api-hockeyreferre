@@ -3,7 +3,6 @@ const User = require('../models/user');
 const router = express.Router();
 var async = require('async');
 
-
 router.get('', async (req, res) => {
     res.render('login', {});
 })
@@ -33,7 +32,6 @@ router.post('/login', async (req, res) => {
             res.send({"error":"Sorry your password is incorrect"});
           } else {
             res.redirect('/api')
-            login = true;
           }
         }
       ])

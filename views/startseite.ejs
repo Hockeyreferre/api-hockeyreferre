@@ -75,5 +75,19 @@
 			</tr>
 		<% }) %>
 </table>
+<div style="margin-top: 50px;"></div>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>zum Team</th>
+	</tr>
+	<% team.forEach(element => { %>
+		<tr>
+			<td><%= element.name %></td>
+			<td><button><a href="/api/mannschaft/<%= element.name %>">zur Spielerliste</a></button></td>
+		</tr>
+<% }) %>
+</table>
+
 </body>
 </html>

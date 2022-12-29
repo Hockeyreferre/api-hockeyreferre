@@ -9,15 +9,23 @@ const sort = { live: -1, date: 1, time: 1 }
 const table = { place: 1 }
 
 router.get('', async (req, res) => {
-    res.render('startseite', { data: await Model.find().sort(sort) });
+    res.render('startseite', { data: await Model.find().sort(sort), team: await Tabelle.find() });
 })
 
 router.get('/create', async (req, res) => {
     res.render('create', { data: await Model.find() });
 })
 
+router.get('/createPlayer/:name', async (req, res) => {
+    res.render('createPlayer', { name: req.params.name });
+})
+
 router.get('/editTable', async (req, res) => {
     res.render('table', { data: await Tabelle.find().sort(table) });
+})
+
+router.get('/mannschaft/:name', async (req, res) => {
+    res.render('mannschaft', { data: await Team.find({ teamName: req.params.name }), name: req.params.name })
 })
 
 router.get('/login', async (req, res) => {
@@ -86,7 +94,7 @@ router.post('/add', async (req, res) => {
     }
 })
 
-router.post('/aufstellungHeim/:name', async (req, res) => {
+router.post('/aufstellung/:name', async (req, res) => {
     const aufstellung = new Aufstellung({
         teamName: req.params.name,
         RF1: req.body.RF1,
@@ -113,15 +121,13 @@ router.post('/aufstellungHeim/:name', async (req, res) => {
         TW2: req.body.TW2,
     })
     try {
-        const dataToSave = await aufstellung.save();
-        res.status(200).json(dataToSave)
 
-        // const updatedData = req.body;
-        // const options = { new: true };
+        const updatedData = req.body;
+        const options = { new: true };
 
-        // const result = await Model.findOneAndUpdate({teamName: req.params.name}, updatedData, options)
+        const result = await Model.findOneAndUpdate({teamName: req.params.name}, updatedData, options)
 
-        // res.send(result)
+        res.send(result)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -133,6 +139,23 @@ router.get('/getAll', async (req, res) => {
     try {
         const data = await Model.find();
         res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.post('/addPlayer/:name', async (req, res) => {
+    const player = new Team({
+        jersey: req.body.jersey,
+        fullname: req.body.fullname,
+        image: req.body.image,
+        teamName: req.params.name
+    });
+
+    try {
+        const dataToSave = await player.save();
+        res.status(200).json(dataToSave)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -170,16 +193,6 @@ router.get('/oberligaSüd', async (req, res) => {
     }
 })
 
-router.get('/mannschaft/:name', async (req, res) => {
-    try {
-        const data = await Aufstellung.find({ teamName: req.params.name });
-        res.json(data)
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
-
 //Update by ID Method
 router.post('/update/:id', async (req, res) => {
     try {
@@ -188,6 +201,23 @@ router.post('/update/:id', async (req, res) => {
         const options = { new: true };
 
         const result = await Model.findByIdAndUpdate(
+            id, updatedData, options
+        )
+
+        res.send(result)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.post('/updatePlayer/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updatedData = req.body;
+        const options = { new: true };
+
+        const result = await Team.findByIdAndUpdate(
             id, updatedData, options
         )
 

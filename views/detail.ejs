@@ -104,12 +104,12 @@
 	</div>
 	</div>
 <div class="display" style="margin-left: 150px;">
-	<form class="home" action="/api/aufstellungHeim/<%= nameHome %>" method="post">
+	<form class="home" action="/api/aufstellung/<%= nameHome %>" method="post">
 		<h2><%= nameHome %></h2>
 		<div>
 			<h4>Reihe 1</h4>
 			<div class="row">
-				<select name="LF1" id="RF1">
+				<select name="LF1" id="LF1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
@@ -121,7 +121,7 @@
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
 					<% }) %>
 				</select>
-				<select name="RF1" id="LF1">
+				<select name="RF1" id="RF1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
@@ -273,7 +273,7 @@
 		</div>
 		<button type="submit">Bestätigen</button>
 	</form>
-	<form class="away" action="/api/aufstellungGast/<%= nameAway %>" method="post">
+	<form class="away" action="/api/aufstellung/<%= nameAway %>" method="post">
 		<h2><%= nameAway %></h2>
 		<div>
 			<h4>Reihe 1</h4>
@@ -304,7 +304,7 @@
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
 					<% }) %>
 				</select>
-				<select name="RF1" id="RF1">
+				<select name="RH1" id="RH1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
@@ -341,7 +341,7 @@
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
 					<% }) %>
 				</select>
-				<select name="RF2" id="RF2">
+				<select name="RH2" id="RH2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
@@ -378,7 +378,7 @@
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
 					<% }) %>
 				</select>
-				<select name="RF3" id="RF3">
+				<select name="RH3" id="RH3">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
@@ -415,7 +415,7 @@
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
 					<% }) %>
 				</select>
-				<select name="RF4" id="RF4">
+				<select name="RH4" id="RH4">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
 						<option value="<%= element.fullname %>"><%= element.fullname %></option>
