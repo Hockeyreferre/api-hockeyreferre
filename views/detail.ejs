@@ -104,7 +104,7 @@
 	</div>
 	</div>
 <div class="display" style="margin-left: 150px;">
-	<form class="home" action="/api/aufstellung/<%= nameHome %>" method="post">
+	<form class="home" action="/api/aufstellung/<%= nameHome %>/<%= date %>" method="post">
 		<h2><%= nameHome %></h2>
 		<div>
 			<h4>Reihe 1</h4>
@@ -112,19 +112,19 @@
 				<select name="LF1" id="LF1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C1" id="C1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF1" id="RF1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -132,13 +132,13 @@
 				<select name="LH1" id="LH1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH1" id="RH1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -149,19 +149,19 @@
 				<select name="LF2" id="LF2">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C2" id="C2">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF2" id="RF2">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -169,13 +169,13 @@
 				<select name="LH2" id="LH2">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH2" id="RH2">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -186,19 +186,19 @@
 				<select name="LF3" id="LF3">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C3" id="C3">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF3" id="RF3">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -206,13 +206,13 @@
 				<select name="LH3" id="LH3">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH3" id="RH3">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -223,19 +223,19 @@
 				<select name="LF4" id="LF4">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C4" id="C4">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF4" id="RF4">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -243,13 +243,13 @@
 				<select name="LH4" id="LH4">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH4" id="RH4">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -260,20 +260,20 @@
 				<select name="TW1" id="TW1">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="TW2" id="TW2">
 					<option>  </option>
 					<% aufstellungHome.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
 		</div>
 		<button type="submit">Bestätigen</button>
 	</form>
-	<form class="away" action="/api/aufstellung/<%= nameAway %>" method="post">
+	<form class="away" action="/api/aufstellung/<%= nameAway %>/<%= date %>" method="post">
 		<h2><%= nameAway %></h2>
 		<div>
 			<h4>Reihe 1</h4>
@@ -281,19 +281,19 @@
 				<select name="LF1" id="LF1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C1" id="C1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF1" id="RF1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -301,13 +301,13 @@
 				<select name="LH1" id="LH1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH1" id="RH1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -318,19 +318,19 @@
 				<select name="LF2" id="LF2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C2" id="C2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF2" id="RF2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -338,13 +338,13 @@
 				<select name="LH2" id="LH2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH2" id="RH2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -355,19 +355,19 @@
 				<select name="LF3" id="LF3">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C3" id="C3">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF3" id="RF3">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -375,13 +375,13 @@
 				<select name="LH3" id="LH3">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH3" id="RH3">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -392,19 +392,19 @@
 				<select name="LF4" id="LF4">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="C4" id="C4">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RF4" id="RF4">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -412,13 +412,13 @@
 				<select name="LH4" id="LH4">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="RH4" id="RH4">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>
@@ -429,13 +429,13 @@
 				<select name="TW1" id="TW1">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 				<select name="TW2" id="TW2">
 					<option>  </option>
 					<% aufstellungAway.forEach(element => { %>
-						<option value="<%= element.fullname %>"><%= element.fullname %></option>
+						<option value="<%= element.fullname %>"><%= element.jersey %>  -  <%= element.fullname %></option>
 					<% }) %>
 				</select>
 			</div>

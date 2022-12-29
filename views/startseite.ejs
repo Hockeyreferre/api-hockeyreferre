@@ -63,7 +63,7 @@
 				<td><%= element.logoAway %></td>
 				<td><%= element.away %></td>
 				<td><%= element.stream %></td>
-				<td><button><a href="/api/view/<%= element.id %>/<%= element.home %>/<%= element.away %>">zum Spiel</a></button></td>
+				<td><button><a href="/api/view/<%= element.id %>/<%= element.home %>/<%= element.away %>/<%= element.date %>">zum Spiel</a></button></td>
 				<td>
 						<form action="/api/delete/<%= element.id %>" method="POST" target="_blank">
 						<input type="text" style="display: none;"

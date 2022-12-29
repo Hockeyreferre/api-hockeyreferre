@@ -3,6 +3,7 @@ const Model = require('../models/model');
 const Aufstellung = require('../models/aufstellung');
 const Team = require('../models/team');
 const Tabelle = require('../models/tabelle');
+const team = require('../models/team');
 const router = express.Router();
 let games = []
 const sort = { live: -1, date: 1, time: 1 }
@@ -32,8 +33,8 @@ router.get('/login', async (req, res) => {
     res.render('login', { data: await Tabelle.find().sort(table) });
 })
 
-router.get('/view/:id/:home/:away', async (req, res) => {
-    res.render('detail', { data: await Model.findById(req.params.id), aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away, id: req.params.id });
+router.get('/view/:id/:home/:away/:date', async (req, res) => {
+    res.render('detail', { data: await Model.findById(req.params.id), aufstellungHome: await Team.find({teamName: req.params.home}), aufstellungAway: await Team.find({teamName: req.params.away}), nameHome: req.params.home, nameAway: req.params.away, id: req.params.id, date: req.params.date });
 })
 
 router.post('/add', async (req, res) => {
@@ -94,40 +95,36 @@ router.post('/add', async (req, res) => {
     }
 })
 
-router.post('/aufstellung/:name', async (req, res) => {
+router.post('/aufstellung/:name/:date', async (req, res) => {
     const aufstellung = new Aufstellung({
-        teamName: req.params.name,
-        RF1: req.body.RF1,
-        C1: req.body.C1,
-        LF1: req.body.LF1,
-        RH1: req.body.RH1,
-        LH1: req.body.LH1,
-        RF2: req.body.RF2,
-        C2: req.body.C2,
-        LF2: req.body.LF2,
-        RH2: req.body.RH2,
-        LH2: req.body.LH2,
-        RF3: req.body.RF3,
-        C3: req.body.C3,
-        LF3: req.body.LF3,
-        RH3: req.body.RH3,
-        LH3: req.body.LH3,
-        RF4: req.body.RF4,
-        C4: req.body.C4,
-        LF4: req.body.LF4,
-        RH4: req.body.RH4,
-        LH4: req.body.LH4,
-        TW1: req.body.TW1,
-        TW2: req.body.TW2,
+        teamName: req.params.name + " " + req.params.date,
+        RF1: await Team.find({ fullname: req.body.RF1 }),
+        C1: await Team.find({ fullname: req.body.C1 }),
+        LF1: await Team.find({ fullname: req.body.LF1 }),
+        RH1: await Team.find({ fullname: req.body.RH1 }),
+        LH1: await Team.find({ fullname: req.body.LH1 }),
+        RF2: await Team.find({ fullname: req.body.RF2 }),
+        C2: await Team.find({ fullname: req.body.C2 }),
+        LF2: await Team.find({ fullname: req.body.LF2 }),
+        RH2: await Team.find({ fullname: req.body.RH2 }),
+        LH2: await Team.find({ fullname: req.body.LH2 }),
+        RF3: await Team.find({ fullname: req.body.RF3 }),
+        C3: await Team.find({ fullname: req.body.C3 }),
+        LF3: await Team.find({ fullname: req.body.LF3 }),
+        RH3: await Team.find({ fullname: req.body.RH3 }),
+        LH3: await Team.find({ fullname: req.body.LH3 }),
+        RF4: await Team.find({ fullname: req.body.RF4 }),
+        C4: await Team.find({ fullname: req.body.C4 }),
+        LF4: await Team.find({ fullname: req.body.LF4 }),
+        RH4: await Team.find({ fullname: req.body.RH4 }),
+        LH4: await Team.find({ fullname: req.body.LH4 }),
+        TW1: await Team.find({ fullname: req.body.TW1 }),
+        TW2: await Team.find({ fullname: req.body.TW2 }),
     })
     try {
 
-        const updatedData = req.body;
-        const options = { new: true };
-
-        const result = await Model.findOneAndUpdate({teamName: req.params.name}, updatedData, options)
-
-        res.send(result)
+        const dataToSave = await aufstellung.save();
+        res.status(200).json(dataToSave)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
