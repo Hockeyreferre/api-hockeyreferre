@@ -6,7 +6,7 @@ const Tabelle = require('../models/tabelle');
 const team = require('../models/team');
 const router = express.Router();
 let games = []
-const sort = { live: -1, date: 1, time: 1 }
+const sort = { live: -1, date: -1, time: 1 }
 const table = { place: 1 }
 
 router.get('', async (req, res) => {
@@ -88,6 +88,7 @@ router.post('/add', async (req, res) => {
             stream: inputstream
         });
         const dataToSave = await data.save();
+        await Tabelle.findOneAndUpdate({name: req.body.home}, games + 1)
         res.status(200).json(dataToSave)
     }
     catch (error) {
