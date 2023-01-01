@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Spiel erstellen | API-Hockeyreferre</title>
+   <style>
+      a {
+			color: black;
+			text-decoration: none;
+		}
+   </style>
+</head>
+
+<body>
+<div class="flex">
+	<div class="item">
+      <button><a href="/api/mannschaft/<%= name %>">Startseite</a></button>
+	<h2>Add Player</h2>
+
+	<form action="/api/addPlayer/<%= name %>" method="post">
+		<label for="home" required="true">Nummer:</label><br>
+      <input type="text" id="jersey" name="jersey" required="true"><br>
+      <label for="away" required="true">Name:</label><br>
+      <input type="text" id="fullname" name="fullname" required="true"><br>
+      <label for="logoHome" required="true">Foto-URL:</label><br>
+      <input type="text" id="image" name="image" required="true"><br>
+      <input type="submit" value="Submit"><br><br>
+	</form>
+	</div>
+</div>
+</body>
+
+</html>
